@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan Langsung - Energi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="bg-white border-b border-gray-200 py-4 px-8 flex items-center justify-between sticky top-0 z-50">
+        <div class="text-blue-600 font-bold text-xl">Perbandingan Energi</div>
+        <div class="hidden md:flex space-x-8 items-center text-gray-500 font-medium">
+            <a href="index.html" class="hover:text-blue-600">Pengenalan</a>
+            <a href="solar.html" class="hover:text-blue-600">Energi Surya</a>
+            <a href="batubara.html" class="hover:text-blue-600">Energi Batu Bara</a>
+            <a href="perbandingan.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Perbandingan</a>
+            <a href="simulasi.html" class="hover:text-blue-600">Simulasi</a>
+            <a href="saran.html" class="hover:text-blue-600">Saran</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-4">Batu Bara vs Surya: Perbandingan Langsung</h1>
+            <p class="text-xl text-slate-500">Tinjauan komprehensif tentang bagaimana kedua sumber energi ini dibandingkan</p>
+        </header>
+
+        <div class="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100 mb-16">
+            <table class="w-full text-left border-collapse">
+                    <thead class="bg-slate-800">
+                        <tr class="border-b border-slate-700">
+                            <th class="p-6 font-bold text-white">Kategori</th>
+                            <th class="p-6 font-bold text-amber-400">Energi Surya</th>
+                            <th class="p-6 font-bold text-slate-300">Energi Batu Bara</th>
+                        </tr>
+                    </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Sumber Energi</td>
+                        <td class="p-6">Terbarukan (sinar matahari)</td>
+                        <td class="p-6">Tidak terbarukan (bahan bakar fosil)</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Emisi CO2</td>
+                        <td class="p-6">~40-50g per kWh (siklus hidup)</td>
+                        <td class="p-6">~820g per kWh</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Biaya Terseimbang (LCOE)</td>
+                        <td class="p-6">Rp 470.000 - 940.000 per MWh</td>
+                        <td class="p-6">Rp 940.000 - 2,35 juta per MWh</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Faktor Kapasitas</td>
+                        <td class="p-6">20-25%</td>
+                        <td class="p-6">40-60%</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Masa Pakai Pembangkit</td>
+                        <td class="p-6">25-30+ tahun</td>
+                        <td class="p-6">30-50 tahun</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Waktu Pembangunan</td>
+                        <td class="p-6">3-12 bulan</td>
+                        <td class="p-6">4-6 tahun</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Penggunaan Air</td>
+                        <td class="p-6">Minimal (pembersihan panel)</td>
+                        <td class="p-6">Tinggi (menara pendingin)</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Penggunaan Lahan</td>
+                        <td class="p-6">0,8-1,2 hektar per MW</td>
+                        <td class="p-6">0,2 hektar per MW (plus pertambangan)</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Ketersediaan</td>
+                        <td class="p-6">Siang hari saja (dengan penyimpanan)</td>
+                        <td class="p-6">Baseload 24/7</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Biaya Operasi</td>
+                        <td class="p-6">Sangat rendah (~Rp 157.000 per MWh)</td>
+                        <td class="p-6">Sedang (Rp 315.000-550.000 per MWh)</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Skalabilitas</td>
+                        <td class="p-6">Sangat modular dan dapat diskalakan</td>
+                        <td class="p-6">Pembangkit terpusat besar</td>
+                    </tr>
+                    <tr class="even:bg-slate-50">
+                        <td class="p-6 font-semibold">Pemeliharaan</td>
+                        <td class="p-6">Minimal (pembersihan, inspeksi)</td>
+                        <td class="p-6">Kompleks (boiler, turbin, dll.)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-10 rounded-[2rem] shadow-lg border-t-8 border-amber-400">
+                <h3 class="text-2xl font-bold mb-6 text-amber-700">Energi Surya Menang Dalam:</h3>
+                <ul class="space-y-4 text-slate-700">
+                    <li>✓ Dampak lingkungan (emisi minimal)</li>
+                    <li>✓ Biaya jangka panjang (LCOE lebih rendah)</li>
+                    <li>✓ Biaya operasi (bahan bakar gratis)</li>
+                    <li>✓ Skalabilitas (residensial hingga utilitas)</li>
+                    <li>✓ Konservasi air</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-10 rounded-[2rem] shadow-lg border-t-8 border-slate-400">
+                <h3 class="text-2xl font-bold mb-6 text-slate-700">Energi Batu Bara Menang Dalam:</h3>
+                <ul class="space-y-4 text-slate-700">
+                    <li>✓ Faktor kapasitas (output lebih konsisten)</li>
+                    <li>✓ Dispatchability (daya sesuai permintaan)</li>
+                    <li>✓ Ketersediaan 24/7 (tidak tergantung cuaca)</li>
+                    <li>✓ Kepadatan energi</li>
+                    <li>✓ Infrastruktur yang sudah ada</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="bg-blue-50 p-12 rounded-[2rem] border border-blue-100">
+            <h2 class="text-3xl font-bold mb-6">Kesimpulan</h2>
+            <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                Energi surya dengan cepat menjadi pilihan yang lebih disukai untuk pembangkitan listrik baru secara global. Sementara batu bara secara historis menyediakan daya baseload yang andal, penurunan biaya yang dramatis dari energi surya membuatnya semakin kompetitif.
+            </p>
+            <p class="text-lg text-slate-700 leading-relaxed">
+                Banyak negara mengakui bahwa kombinasi biaya lebih rendah dan energi lebih bersih membuat surya menjadi pilihan jangka panjang yang lebih baik untuk planet dan ekonomi kita.
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>

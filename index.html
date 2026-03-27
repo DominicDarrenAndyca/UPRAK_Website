@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan Energi - Batu Bara vs Surya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <nav class="bg-white border-b border-gray-200 py-4 px-8 flex items-center justify-between sticky top-0 z-50">
+        <div class="text-blue-600 font-bold text-xl">Perbandingan Energi</div>
+        <div class="hidden md:flex space-x-8 items-center text-gray-500 font-medium">
+            <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Pengenalan</a>
+            <a href="solar.html" class="hover:text-blue-600">Energi Surya</a>
+            <a href="batubara.html" class="hover:text-blue-600">Energi Batu Bara</a>
+            <a href="perbandingan.html" class="hover:text-blue-600">Perbandingan</a>
+            <a href="simulasi.html" class="hover:text-blue-600">Simulasi</a>
+            <a href="saran.html" class="hover:text-blue-600">Saran</a>
+        </div>
+    </nav>
+
+    <header class="text-center py-16 px-4 bg-white">
+        <h1 class="text-4xl font-bold mb-4 text-slate-800">Batu Bara vs Energi Surya</h1>
+        <p class="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
+            Jelajahi dan bandingkan dua sumber energi utama yang menggerakkan dunia kita. Pelajari cara kerjanya, kemampuan produksi energi, dan dampak ekonominya.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-6 pb-20">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl">
+            <img src="Images/surya.jpg" alt="Panel Surya" class="w-full h-64 object-cover">
+            <div class="p-8">
+                <h2 class="text-2xl font-bold mb-4">Energi Surya</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Energi bersih dan terbarukan dari matahari. Tenaga surya memanfaatkan teknologi fotovoltaik untuk mengubah sinar matahari langsung menjadi listrik tanpa emisi.
+                </p>
+                <button class="bg-[#EAB308] text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition">
+                    Pelajari Lebih Lanjut
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl">
+            <img src="Images/batubara.jpg" alt="Pembangkit Batu Bara" class="w-full h-64 object-cover">
+            <div class="p-8">
+                <h2 class="text-2xl font-bold mb-4">Energi Batu Bara</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Sumber energi bahan bakar fosil tradisional. Batu bara telah menggerakkan pertumbuhan industri selama berabad-abad, menyediakan listrik baseload yang andal melalui pembakaran.
+                </p>
+                <button class="bg-[#334155] text-white font-semibold py-3 px-6 rounded-lg hover:bg-slate-800 transition">
+                    Pelajari Lebih Lanjut
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-6xl mx-auto px-6 pb-24">
+        <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-12 text-center">
+            <h3 class="text-2xl font-bold mb-4">Siap untuk Membandingkan?</h3>
+            <p class="text-gray-500 mb-8">Lihat bagaimana kedua sumber energi ini bersaing dalam hal efisiensi, biaya, dan dampak lingkungan.</p>
+            <button class="bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg hover:bg-blue-700 transition">
+                Lihat Perbandingan
+            </button>
+        </div>
+    </section>
+
+</body>
+</html>
