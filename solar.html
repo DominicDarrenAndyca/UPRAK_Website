@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energi Surya - Perbandingan Energi</title>
+    <title>Energi Surya - Detail Teknologi PLTS</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.8; }
+        .article-card { background: white; border-radius: 2.5rem; padding: 3rem; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); }
+        .prose h2 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 800; font-size: 1.875rem; color: #1e293b; }
+        .prose p { margin-bottom: 1.25rem; color: #475569; font-size: 1.125rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <nav class="bg-white border-b border-gray-200 py-4 px-8 flex items-center justify-between sticky top-0 z-50">
-        <div class="text-blue-600 font-bold text-xl">Perbandingan Energi</div>
+        <div class="text-blue-600 font-bold text-xl uppercase tracking-tighter">Perbandingan Energi</div>
         <div class="hidden md:flex space-x-8 items-center text-gray-500 font-medium">
             <a href="index.html" class="hover:text-blue-600">Pengenalan</a>
             <a href="solar.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Energi Surya</a>
@@ -24,80 +27,72 @@
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
-        
-        <header class="mb-10">
-            <h1 class="text-5xl font-bold text-slate-900 mb-4">Energi Surya</h1>
-            <p class="text-xl text-slate-500">Memanfaatkan kekuatan matahari untuk menciptakan listrik bersih dan terbarukan</p>
-        </header>
-
-        <div class="rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-100 mb-12">
-            <img src="Images/solar-panel-wide.jpg" alt="Solar Panels" class="w-full h-[450px] object-cover">
-        </div>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-16">
-        
-        <div class="bg-white p-10 rounded-[2rem] shadow-lg border border-slate-50 transition-transform hover:-translate-y-2">
-            <div class="text-4xl mb-6">☀️</div>
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Cara Kerja</h2>
-            <p class="text-slate-600 leading-relaxed">
-                Panel surya mengandung sel fotovoltaik (PV) yang terbuat dari bahan semikonduktor, biasanya silikon. Ketika sinar matahari mengenai sel-sel ini, foton melepaskan elektron dari atom, menghasilkan arus listrik. Arus searah (DC) ini kemudian diubah menjadi arus bolak-balik (AC) oleh inverter untuk digunakan di rumah dan bisnis.
-            </p>
-        </div>
-
-        <div class="bg-white p-10 rounded-[2rem] shadow-lg border border-slate-50 transition-transform hover:-translate-y-2">
-            <div class="text-4xl mb-6">⚡</div>
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Produksi Energi</h2>
-            <p class="text-slate-600 mb-6">Kapasitas dan output energi surya bervariasi berdasarkan instalasi:</p>
-            <ul class="space-y-3 text-slate-600">
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Sistem residensial: kapasitas 5-10 kW</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Sistem komersial: 100 kW - 1 MW</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Ladang skala utilitas: 50-500+ MW</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Faktor kapasitas rata-rata: 20-25%</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Produksi tahunan: ~1.500 kWh per kW terpasang</li>
-            </ul>
-        </div>
-
-        <div class="bg-white p-10 rounded-[2rem] shadow-lg border border-slate-50 transition-transform hover:-translate-y-2">
-            <div class="text-4xl mb-6">💰</div>
-            <h2 class="text-2xl font-bold text-slate-900 mb-6">Biaya</h2>
-            <p class="text-slate-600 mb-6">Biaya surya telah turun drastis dalam beberapa tahun terakhir:</p>
-            <ul class="space-y-3 text-slate-600">
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Residensial: Rp 39.000-55.000 per watt terpasang</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Komersial: Rp 23.000-39.000 per watt</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Skala utilitas: Rp 12.500-19.000 per watt</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> LCOE: Rp 470.000-940.000 per MWh</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Periode pengembalian: 6-10 tahun</li>
-                <li class="flex items-start"><span class="mr-2 text-slate-400">•</span> Masa pakai: 25-30+ tahun</li>
-            </ul>
-        </div>
-
-    </div>
-        <section class="bg-[#f0fdf4] border-l-[6px] border-[#22c55e] p-10 rounded-2xl">
-            <h2 class="text-2xl font-bold mb-8 text-[#14532d]">Manfaat Lingkungan</h2>
-            <div class="grid md:grid-cols-2 gap-y-6 gap-x-16">
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Nol emisi saat beroperasi
-                </div>
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Kebutuhan pemeliharaan minimal
-                </div>
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Tidak ada konsumsi air untuk pembangkit listrik
-                </div>
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Operasi senyap
-                </div>
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Mengurangi ketergantungan pada bahan bakar fosil
-                </div>
-                <div class="flex items-center text-[#166534] font-medium">
-                    <span class="mr-3 text-emerald-500 text-xl font-bold">✓</span> Modular dan dapat diskalakan
-                </div>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <div class="article-card">
+            <div class="mb-10 text-center">
+                <span class="bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Energi Terbarukan</span>
+                <h1 class="text-4xl font-black mt-4 text-slate-900">Pembangkit Listrik Tenaga Surya (PLTS)</h1>
             </div>
-        </section>
 
+            <section class="prose max-w-none space-y-6">
+                <h2>1. Bagaimana Cara Kerjanya? (Prinsip Fisika)</h2>
+                <p>
+                    PLTS bekerja menggunakan <strong>Efek Fotovoltaik</strong>. Panel surya yang terbuat dari material semikonduktor (silikon) menyerap foton dari sinar matahari. Energi dari foton ini menggerakkan elektron sehingga menghasilkan arus listrik searah (DC).
+                </p>
+                <p>
+                    Arus DC tersebut kemudian dialirkan menuju <strong>Inverter</strong> untuk diubah menjadi arus bolak-balik (AC) agar dapat digunakan oleh perangkat elektronik rumah tangga atau disalurkan ke jaringan listrik nasional.
+                </p>
+
+                <div class="bg-blue-900 p-10 rounded-[2.5rem] my-12 border-l-[16px] border-yellow-400 shadow-2xl not-prose">
+                    <h3 class="font-black text-3xl mb-6 italic !text-yellow-400 uppercase tracking-widest">
+                        Data Ekonomi Riil (UPRAK)
+                    </h3>
+                    
+                    <p class="!text-yellow-100 text-xl mb-8 font-semibold leading-relaxed">
+                        Investasi PLTS terbukti jauh lebih menguntungkan secara finansial dibandingkan tarif konvensional:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 text-center">
+                        <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border-2 border-white/10">
+                            <p class="!text-yellow-300 text-sm font-bold uppercase tracking-widest mb-3">Biaya Efisiensi</p>
+                            <p class="text-5xl font-black !text-yellow-400 mb-3">Rp 542</p>
+                            <p class="!text-yellow-200 text-xs font-semibold bg-blue-800/80 py-1 px-4 rounded-full inline-block">Tarif PLN: Rp 1.444/kWh</p>
+                        </div>
+
+                        <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border-2 border-white/10">
+                            <p class="!text-yellow-300 text-sm font-bold uppercase tracking-widest mb-3">Potensi Hemat</p>
+                            <p class="text-5xl font-black !text-yellow-400 mb-3">Rp 185.556</p>
+                            <p class="!text-yellow-200 text-xs font-bold uppercase bg-emerald-700/80 py-1 px-5 rounded-full inline-block">Hemat Per Bulan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>2. Analisis Dampak Lingkungan</h2>
+                <p>
+                    PLTS adalah solusi energi masa depan karena **tidak menghasilkan emisi CO₂**, polusi udara, maupun limbah berbahaya selama operasionalnya. Penggunaan PLTS secara massal dapat mengurangi jejak karbon secara drastis dibandingkan pembangkit berbasis fosil.
+                </p>
+
+                <h2 class="text-red-600">3. Kelebihan & Kekurangan</h2>
+                <div class="grid md:grid-cols-2 gap-8 not-prose">
+                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+                        <h4 class="font-bold text-emerald-800 mb-2">Kelebihan</h4>
+                        <ul class="text-sm text-emerald-700 space-y-2">
+                            <li>✓ Sumber energi tidak terbatas</li>
+                            <li>✓ Biaya operasional sangat rendah</li>
+                            <li>✓ Ramah lingkungan (Zero Emission)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+                        <h4 class="font-bold text-red-800 mb-2">Kekurangan</h4>
+                        <ul class="text-sm text-red-700 space-y-2">
+                            <li>✗ Bergantung pada cuaca/iradiasi</li>
+                            <li>✗ Investasi awal komponen cukup mahal</li>
+                            <li>✗ Efisiensi panel masih terbatas</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-
 </body>
 </html>

@@ -7,7 +7,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.8; }
+        .article-content h2 { margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 800; font-size: 1.875rem; color: #0f172a; border-left: 4px solid #2563eb; padding-left: 1rem; }
+        .article-content p { margin-bottom: 1.5rem; color: #334155; font-size: 1.1rem; text-align: justify; }
+        .highlight-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 1.5rem; margin: 2rem 0; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -24,12 +27,47 @@
         </div>
     </nav>
 
-    <header class="text-center py-16 px-4 bg-white">
-        <h1 class="text-4xl font-bold mb-4 text-slate-800">Batu Bara vs Energi Surya</h1>
-        <p class="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
-            Jelajahi dan bandingkan dua sumber energi utama yang menggerakkan dunia kita. Pelajari cara kerjanya, kemampuan produksi energi, dan dampak ekonominya.
-        </p>
-    </header>
+    <article class="max-w-4xl mx-auto px-6 py-20 bg-white shadow-sm shadow-slate-200 mt-10 rounded-t-[3rem]">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-6">
+                PLTS vs PLTU: Transformasi Energi Terbarukan di Indonesia
+            </h1>
+        </header>
+
+        <div class="article-content">
+            <p>
+                Indonesia memiliki potensi energi surya yang sangat besar mengingat letak geografisnya di garis khatulistiwa. Namun, hingga saat ini, tulang punggung kelistrikan nasional masih didominasi oleh Pembangkit Listrik Tenaga Uap (PLTU) yang berbasis batu bara. Artikel ini akan membedah mengapa transisi ke Pembangkit Listrik Tenaga Surya (PLTS) bukan hanya soal lingkungan, tapi juga efisiensi ekonomi.
+            </p>
+
+            <h2>Prinsip Fisika dan Cara Kerja</h2>
+            <p>
+                <strong>PLTS (Energi Terbarukan):</strong> Menggunakan sel fotovoltaik untuk menangkap sinar matahari. Ketika foton menghantam sel surya, elektron bergerak dan menghasilkan arus listrik searah (DC). Arus ini kemudian dikonversi oleh <em>Inverter</em> menjadi arus bolak-balik (AC) agar kompatibel dengan perangkat elektronik rumah tangga atau jaringan listrik nasional.
+            </p>
+            <p>
+                <strong>PLTU (Energi Terbatas):</strong> Bekerja dengan membakar batu bara di dalam boiler untuk memanaskan air. Air yang mendidih berubah menjadi uap bertekanan tinggi yang digunakan untuk memutar turbin. Turbin ini terhubung ke generator yang mengubah energi kinetik menjadi energi listrik. Proses ini menyisakan emisi karbon yang signifikan hasil dari pembakaran fosil.
+            </p>
+
+            <div class="highlight-box border-l-8 border-blue-600">
+                <h3 class="font-bold text-xl mb-4 text-blue-900">Analisis Ekonomi & Biaya</h3>
+                <p class="text-sm">
+                    Berdasarkan perhitungan studi kasus, biaya energi yang dihasilkan PLTS mencapai sekitar <strong>Rp 542 per kWh</strong>. Angka ini jauh lebih kompetitif dibandingkan tarif dasar listrik umum yang berkisar di angka Rp 1.444 per kWh. Penggunaan PLTS dapat memberikan penghematan biaya listrik hingga <strong>Rp 185.556 per bulan</strong> untuk skala tertentu, sehingga investasi awal yang besar akan tertutup oleh biaya operasional yang sangat rendah di masa depan.
+                </p>
+            </div>
+
+            <h2>Dampak Lingkungan</h2>
+            <p>
+                Dari sisi lingkungan, perbandingannya sangat kontras. PLTU melepaskan emisi gas rumah kaca yang besar, polusi udara, serta limbah berbahaya. Sebaliknya, PLTS tidak menghasilkan emisi CO₂ selama beroperasi dan tidak menimbulkan polusi suara. Meskipun manufaktur panel surya membutuhkan energi, jejak karbonnya tetap jauh lebih kecil dibandingkan penggunaan batu bara secara terus-menerus.
+            </p>
+        </div>
+        <footer class="mt-20 pt-10 border-t text-center">
+            <p class="text-slate-400 text-sm mb-6">Ingin melihat simulasi angka berdasarkan parameter wilayah Anda?</p>
+            <a href="simulasi.html" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-700 transition inline-block shadow-lg shadow-blue-200">
+                Buka Simulator Energi →
+            </a>
+        </footer>
+    </article>
+
+
 
     <main class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-6 pb-20">
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl">
@@ -39,9 +77,9 @@
                 <p class="text-gray-600 mb-8 leading-relaxed">
                     Energi bersih dan terbarukan dari matahari. Tenaga surya memanfaatkan teknologi fotovoltaik untuk mengubah sinar matahari langsung menjadi listrik tanpa emisi.
                 </p>
-                <button class="bg-[#EAB308] text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition">
+                <a href="solar.html" class="bg-[#EAB308] text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-600 transition">
                     Pelajari Lebih Lanjut
-                </button>
+                </a>
             </div>
         </div>
 
@@ -52,9 +90,9 @@
                 <p class="text-gray-600 mb-8 leading-relaxed">
                     Sumber energi bahan bakar fosil tradisional. Batu bara telah menggerakkan pertumbuhan industri selama berabad-abad, menyediakan listrik baseload yang andal melalui pembakaran.
                 </p>
-                <button class="bg-[#334155] text-white font-semibold py-3 px-6 rounded-lg hover:bg-slate-800 transition">
+                <a href="batubara.html" class="bg-[#334155] text-white font-semibold py-3 px-6 rounded-lg hover:bg-slate-800 transition">
                     Pelajari Lebih Lanjut
-                </button>
+                </a>
             </div>
         </div>
     </main>
@@ -63,9 +101,9 @@
         <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-12 text-center">
             <h3 class="text-2xl font-bold mb-4">Siap untuk Membandingkan?</h3>
             <p class="text-gray-500 mb-8">Lihat bagaimana kedua sumber energi ini bersaing dalam hal efisiensi, biaya, dan dampak lingkungan.</p>
-            <button class="bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg hover:bg-blue-700 transition">
+            <a href="perbandingan.html" class="bg-blue-600 text-white font-semibold py-3 px-10 rounded-lg hover:bg-blue-700 transition">
                 Lihat Perbandingan
-            </button>
+            </a>
         </div>
     </section>
 
