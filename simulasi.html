@@ -35,27 +35,129 @@
             <div class="bg-white p-8 rounded-[2rem] card-shadow border border-slate-100">
                 <h2 class="text-xl font-bold mb-6">Parameter Area 1</h2>
                 <div class="space-y-4">
-                    <div><label class="block text-sm font-bold text-slate-700 mb-1">Nama Area</label>
-                    <input type="text" id="a1Name" value="Area 1" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
-                    <div><label class="block text-sm font-bold text-slate-700 mb-1">Iradiasi Surya (kWh/m²/hari)</label>
-                    <input type="number" id="a1Irr" value="5.5" step="0.1" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Pilih Provinsi</label>
+                        <select id="a1Name" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" onchange="updateIrr(1)">
+                                <option value="">-- Pilih Provinsi --</option>
+                                <option value="1. Aceh">1. Aceh</option>
+                                <option value="2. Sumatera Utara">2. Sumatera Utara</option>
+                                <option value="3. Sumatera Barat">3. Sumatera Barat</option>
+                                <option value="4. Riau">4. Riau</option>
+                                <option value="5. Kepulauan Riau">5. Kepulauan Riau</option>
+                                <option value="6. Jambi">6. Jambi</option>
+                                <option value="7. Sumatera Selatan">7. Sumatera Selatan</option>
+                                <option value="8. Bengkulu">8. Bengkulu</option>
+                                <option value="9. Lampung">9. Lampung</option>
+                                <option value="10. Bangka Belitung">10. Bangka Belitung</option>
+                                <option value="11. DKI Jakarta">11. DKI Jakarta</option>
+                                <option value="12. Jawa Barat">12. Jawa Barat</option>
+                                <option value="13. Banten">13. Banten</option>
+                                <option value="14. Jawa Tengah">14. Jawa Tengah</option>
+                                <option value="15. DI Yogyakarta">15. DI Yogyakarta</option>
+                                <option value="16. Jawa Timur">16. Jawa Timur</option>
+                                <option value="17. Bali">17. Bali</option>
+                                <option value="18. Nusa Tenggara Barat">18. Nusa Tenggara Barat</option>
+                                <option value="19. Nusa Tenggara Timur">19. Nusa Tenggara Timur</option>
+                                <option value="20. Kalimantan Barat">20. Kalimantan Barat</option>
+                                <option value="21. Kalimantan Tengah">21. Kalimantan Tengah</option>
+                                <option value="22. Kalimantan Selatan">22. Kalimantan Selatan</option>
+                                <option value="23. Kalimantan Timur">23. Kalimantan Timur</option>
+                                <option value="24. Kalimantan Utara">24. Kalimantan Utara</option>
+                                <option value="25. Sulawesi Utara">25. Sulawesi Utara</option>
+                                <option value="26. Sulawesi Tengah">26. Sulawesi Tengah</option>
+                                <option value="27. Sulawesi Selatan">27. Sulawesi Selatan</option>
+                                <option value="28. Sulawesi Tenggara">28. Sulawesi Tenggara</option>
+                                <option value="29. Gorontalo">29. Gorontalo</option>
+                                <option value="30. Sulawesi Barat">30. Sulawesi Barat</option>
+                                <option value="31. Maluku">31. Maluku</option>
+                                <option value="32. Maluku Utara">32. Maluku Utara</option>
+                                <option value="33. Papua">33. Papua</option>
+                                <option value="34. Papua Barat">34. Papua Barat</option>
+                                <option value="35. Papua Tengah">35. Papua Tengah</option>
+                                <option value="36. Papua Pegunungan">36. Papua Pegunungan</option>
+                                <option value="37. Papua Selatan">37. Papua Selatan</option>
+                                <option value="38. Papua Barat Daya">38. Papua Barat Daya</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Iradiasi Surya</label>
+                        <input type="number" id="a1Irr" value="0" step="0.1" class="w-full p-3 bg-slate-200 border rounded-xl outline-none" readonly>
+                    </div>
+
                     <div><label class="block text-sm font-bold text-slate-700 mb-1">Harga Batu Bara (Rp/ton)</label>
                     <input type="number" id="a1CoalPrice" value="940000" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    
                     <div><label class="block text-sm font-bold text-slate-700 mb-1">Permintaan Listrik (MW)</label>
                     <input type="number" id="a1Demand" value="50" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Jangka Waktu Operasional (Tahun)</label>
+                        <input type="number" id="a1Life" value="25" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()">
+                    </div>
                 </div>
             </div>
             <div class="bg-white p-8 rounded-[2rem] card-shadow border border-slate-100">
                 <h2 class="text-xl font-bold mb-6">Parameter Area 2</h2>
                 <div class="space-y-4">
-                    <div><label class="block text-sm font-bold text-slate-700 mb-1">Nama Area</label>
-                    <input type="text" id="a2Name" value="Area 2" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
-                    <div><label class="block text-sm font-bold text-slate-700 mb-1">Iradiasi Surya (kWh/m²/hari)</label>
-                    <input type="number" id="a2Irr" value="4.2" step="0.1" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Pilih Provinsi</label>
+                        <select id="a2Name" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" onchange="updateIrr(2)">
+                                <option value="">-- Pilih Provinsi --</option>
+                                <option value="1. Aceh">1. Aceh</option>
+                                <option value="2. Sumatera Utara">2. Sumatera Utara</option>
+                                <option value="3. Sumatera Barat">3. Sumatera Barat</option>
+                                <option value="4. Riau">4. Riau</option>
+                                <option value="5. Kepulauan Riau">5. Kepulauan Riau</option>
+                                <option value="6. Jambi">6. Jambi</option>
+                                <option value="7. Sumatera Selatan">7. Sumatera Selatan</option>
+                                <option value="8. Bengkulu">8. Bengkulu</option>
+                                <option value="9. Lampung">9. Lampung</option>
+                                <option value="10. Bangka Belitung">10. Bangka Belitung</option>
+                                <option value="11. DKI Jakarta">11. DKI Jakarta</option>
+                                <option value="12. Jawa Barat">12. Jawa Barat</option>
+                                <option value="13. Banten">13. Banten</option>
+                                <option value="14. Jawa Tengah">14. Jawa Tengah</option>
+                                <option value="15. DI Yogyakarta">15. DI Yogyakarta</option>
+                                <option value="16. Jawa Timur">16. Jawa Timur</option>
+                                <option value="17. Bali">17. Bali</option>
+                                <option value="18. Nusa Tenggara Barat">18. Nusa Tenggara Barat</option>
+                                <option value="19. Nusa Tenggara Timur">19. Nusa Tenggara Timur</option>
+                                <option value="20. Kalimantan Barat">20. Kalimantan Barat</option>
+                                <option value="21. Kalimantan Tengah">21. Kalimantan Tengah</option>
+                                <option value="22. Kalimantan Selatan">22. Kalimantan Selatan</option>
+                                <option value="23. Kalimantan Timur">23. Kalimantan Timur</option>
+                                <option value="24. Kalimantan Utara">24. Kalimantan Utara</option>
+                                <option value="25. Sulawesi Utara">25. Sulawesi Utara</option>
+                                <option value="26. Sulawesi Tengah">26. Sulawesi Tengah</option>
+                                <option value="27. Sulawesi Selatan">27. Sulawesi Selatan</option>
+                                <option value="28. Sulawesi Tenggara">28. Sulawesi Tenggara</option>
+                                <option value="29. Gorontalo">29. Gorontalo</option>
+                                <option value="30. Sulawesi Barat">30. Sulawesi Barat</option>
+                                <option value="31. Maluku">31. Maluku</option>
+                                <option value="32. Maluku Utara">32. Maluku Utara</option>
+                                <option value="33. Papua">33. Papua</option>
+                                <option value="34. Papua Barat">34. Papua Barat</option>
+                                <option value="35. Papua Tengah">35. Papua Tengah</option>
+                                <option value="36. Papua Pegunungan">36. Papua Pegunungan</option>
+                                <option value="37. Papua Selatan">37. Papua Selatan</option>
+                                <option value="38. Papua Barat Daya">38. Papua Barat Daya</option>
+                            </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Iradiasi Surya</label>
+                        <input type="number" id="a2Irr" value="0" step="0.1" class="w-full p-3 bg-slate-200 border rounded-xl outline-none" readonly>
+                    </div>
+
                     <div><label class="block text-sm font-bold text-slate-700 mb-1">Harga Batu Bara (Rp/ton)</label>
-                    <input type="number" id="a2CoalPrice" value="1175000" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    <input type="number" id="a2CoalPrice" value="940000" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    
                     <div><label class="block text-sm font-bold text-slate-700 mb-1">Permintaan Listrik (MW)</label>
                     <input type="number" id="a2Demand" value="50" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()"></div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-1">Jangka Waktu Operasional (Tahun)</label>
+                        <input type="number" id="a2Life" value="25" class="w-full p-3 bg-slate-50 border rounded-xl outline-none" oninput="calculate()">
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,45 +171,62 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <p class="text-blue-400 font-mono text-sm mb-4">// 01. PRODUKSI ENERGI (MWh)</p>
+                        <p class="text-blue-400 font-mono text-sm mb-4">// 01. INVESTASI AWAL (CAPEX)</p>
                         <div class="py-6 text-center">
-                            <p class="text-xl font-bold font-mono">E<sub>solar</sub> = (P × 8760) × (I<sub>in</sub> / 5)</p>
-                            <p class="text-xl font-bold font-mono mt-4">E<sub>coal</sub> = (P × 8760) × 0.85</p>
+                            <p class="text-lg font-bold font-mono">CAPEX<sub>S</sub> = Demand × 14 Miliar</p>
+                            <p class="text-lg font-bold font-mono mt-4">CAPEX<sub>C</sub> = Demand × 23 Miliar</p>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4 space-y-2 text-xs text-slate-300">
+                            <p><span class="text-blue-300 font-bold font-mono">Demand</span> = Kapasitas daya yang dibutuhkan (MW)</p>
+                            <p><span class="text-blue-300 font-bold font-mono">14M / 23M</span> = Estimasi biaya pembangunan infrastruktur per 1 MW</p>
                         </div>
                     </div>
-                    <p class="text-slate-400 text-xs italic mt-4">*8760 = Jam/tahun, 0.85 = Efisiensi kapasitas pembangkit</p>
                 </div>
 
                 <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <p class="text-amber-400 font-mono text-sm mb-4">// 02. BIAYA BAHAN BAKAR & OPS</p>
+                        <p class="text-purple-400 font-mono text-sm mb-4">// 02. PRODUKSI ENERGI TAHUNAN (E)</p>
                         <div class="py-6 text-center">
-                            <p class="text-xl font-bold font-mono">Cost<sub>fuel</sub> = (E × 0.4) × Harga_BB</p>
-                            <p class="text-xl font-bold font-mono mt-4">Req<sub>coal</sub> = E × 0.4</p>
+                            <p class="text-lg font-bold font-mono">E<sub>S</sub> = Demand × Iradiasi × 365</p>
+                            <p class="text-lg font-bold font-mono mt-4">E<sub>C</sub> = (Demand × 8760) × 0.85</p>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4 space-y-2 text-xs text-slate-300">
+                            <p><span class="text-purple-300 font-bold font-mono">365 / 8760</span> = Konversi waktu ke tahun (hari / jam)</p>
+                            <p><span class="text-purple-300 font-bold font-mono">0.85</span> = Capacity Factor (PLTU tidak menyala 100% karena maintenance)</p>
                         </div>
                     </div>
-                    <p class="text-slate-400 text-xs italic mt-4">*0.4 = Konsumsi Batu Bara (Ton) per MWh</p>
                 </div>
 
                 <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <p class="text-emerald-400 font-mono text-sm mb-4">// 03. LCOE (BIAYA PER MWh)</p>
+                        <p class="text-amber-400 font-mono text-sm mb-4">// 03. BIAYA OPERASIONAL (OPEX / TAHUN)</p>
                         <div class="py-6 text-center">
-                            <p class="text-lg font-bold font-mono">LCOE<sub>S</sub> = 78rb + (600 / I<sub>in</sub> × 100)</p>
-                            <p class="text-lg font-bold font-mono mt-4">LCOE<sub>C</sub> = (Cost<sub>fuel</sub> + Ops) / E</p>
+                            <p class="text-sm font-bold font-mono">OPEX<sub>S</sub> = CAPEX<sub>S</sub> × 2%</p>
+                            <p class="text-sm font-bold font-mono mt-4">OPEX<sub>C</sub> = (E<sub>C</sub> × 0.4 × Harga_BB) + (E<sub>C</sub> × 450rb)</p>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4 space-y-2 text-xs text-slate-300">
+                            <p><span class="text-amber-300 font-bold font-mono">2%</span> = Biaya perawatan panel surya per tahun dari total investasi</p>
+                            <p><span class="text-amber-300 font-bold font-mono">0.4</span> = Konsumsi spesifik (Ton batu bara per 1 MWh listrik)</p>
+                            <p><span class="text-amber-300 font-bold font-mono">450rb</span> = Variable O&M (Biaya suku cadang & pemeliharaan mesin PLTU per MWh)</p>
                         </div>
                     </div>
-                    <p class="text-slate-400 text-xs italic mt-4">*LCOE menentukan harga rata-rata energi per satuan produksi</p>
                 </div>
 
                 <div class="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 flex flex-col justify-between">
                     <div>
-                        <p class="text-purple-400 font-mono text-sm mb-4">// 04. PERSENTASE SELISIH</p>
+                        <p class="text-emerald-400 font-mono text-sm mb-4">// 04. LEVELIZED COST OF ENERGY (LCOE)</p>
                         <div class="py-6 text-center">
-                            <p class="text-2xl font-bold font-mono">Diff = |(C - S) / C| × 100%</p>
+                            <div class="inline-block text-left">
+                                <p class="text-lg font-bold font-mono text-center">LCOE = <span>(CAPEX + (OPEX × Tahun))/(E<sub>tahunan</sub> × Tahun)</span></p>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-600 pt-4 space-y-2 text-xs text-slate-300">
+                            <p><span class="text-emerald-300 font-bold font-mono">CAPEX</span> = Investasi awal pembangunan pembangkit </p>
+                            <p><span class="text-emerald-300 font-bold font-mono">OPEX</span> = Total biaya operasional dalam 1 tahun </p>
+                            <p><span class="text-emerald-300 font-bold font-mono">E<sub>tahunan</sub></span> = Total produksi listrik dalam satu tahun</p>
+                            <p><span class="text-emerald-300 font-bold font-mono">Tahun</span> = Jangka waktu operasional pembangkit</p>
                         </div>
                     </div>
-                    <p class="text-slate-400 text-xs italic mt-4">*Digunakan untuk menentukan efisiensi ekonomi antar wilayah</p>
                 </div>
             </div>
         </div>
@@ -115,61 +234,102 @@
         <br>
 
         <div class="mb-16">
-            <h2 class="text-2xl font-bold mb-8" id="outA1Title text-slate-800">Hasil Area 1</h2>
+            <h2 class="text-2xl font-bold mb-8 text-slate-800" id="outA1Title">Hasil Area 1</h2>
             <div class="grid md:grid-cols-2 gap-8 mb-8">
+                
                 <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
                     <h3 class="text-emerald-700 font-bold text-lg mb-6 flex items-center">☀️ Energi Surya</h3>
                     <div class="space-y-4 text-sm">
-                        <div class="flex justify-between border-b pb-2"><span>Produksi Tahunan:</span> <span class="font-bold" id="a1S_Prod">-</span></div>
-                        <div class="flex justify-between border-b pb-2"><span>Biaya Operasi Tahunan:</span> <span class="font-bold" id="a1S_Op">-</span></div>
-                        <div class="flex justify-between text-blue-600 font-bold text-xl pt-4 border-t"><span>Biaya per MWh:</span> <span id="a1S_MWh">-</span></div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya Awal:</span> 
+                            <span class="font-bold text-slate-700" id="a1S_Initial">-</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya per Bulan:</span> 
+                            <span class="font-bold text-slate-700" id="a1S_Monthly">-</span>
+                        </div>
+                        <div class="flex justify-between text-blue-600 font-bold text-xl pt-4 border-t">
+                            <span>LCOE:</span> 
+                            <span id="a1S_MWh">-</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
                     <h3 class="text-slate-700 font-bold text-lg mb-6 flex items-center">🌑 Energi Batu Bara</h3>
                     <div class="space-y-4 text-sm">
-                        <div class="flex justify-between border-b pb-2"><span>Produksi Tahunan:</span> <span class="font-bold" id="a1C_Prod">-</span></div>
-                        <div class="flex justify-between border-b pb-2"><span>Biaya Bahan Bakar:</span> <span class="font-bold text-red-500" id="a1C_Fuel">-</span></div>
-                        <div class="flex justify-between text-red-600 font-bold text-xl pt-4 border-t"><span>Biaya per MWh:</span> <span id="a1C_MWh">-</span></div>
-                        <div class="flex justify-between pt-2"><span>Batu Bara Dibutuhkan:</span> <span class="font-bold" id="a1C_Req">-</span></div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya Awal:</span> 
+                            <span class="font-bold text-slate-700" id="a1C_Initial">-</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya per Bulan:</span> 
+                            <span class="font-bold text-slate-700" id="a1C_Monthly">-</span>
+                        </div>
+                        <div class="flex justify-between text-red-600 font-bold text-xl pt-4 border-t">
+                            <span>LCOE:</span> 
+                            <span id="a1C_MWh">-</span>
+                        </div>
                     </div>
                 </div>
+                
             </div>
+
             <div class="p-8 bg-blue-950 text-white rounded-3xl shadow-xl border border-blue-900">
-                <h4 class="text-sm font-bold uppercase tracking-widest text-blue-200 mb-3">Pemenang untuk Area 1:</h4>
+                <h4 class="text-sm font-bold uppercase tracking-widest text-blue-200 mb-3">Pemenang Strategis:</h4>
                 <p id="a1WinMsg" class="text-2xl font-black text-amber-400">-</p>
-                <p class="text-blue-300 text-xs mt-2">-</p>
+                <p class="text-blue-300 text-xs mt-2">Keputusan berdasarkan perbandingan biaya jangka panjang (LCOE).</p>
             </div>
         </div>
 
         <div class="mb-16">
-            <h2 class="text-2xl font-bold mb-8 text-slate-800">Hasil Area 2</h2>
+            <h2 class="text-2xl font-bold mb-8 text-slate-800" id="outA2Title">Hasil Area 2</h2>
             <div class="grid md:grid-cols-2 gap-8 mb-8">
+                
                 <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
-                    <h3 class="text-emerald-700 font-bold text-lg mb-6">☀️ Energi Surya</h3>
+                    <h3 class="text-emerald-700 font-bold text-lg mb-6 flex items-center">☀️ Energi Surya</h3>
                     <div class="space-y-4 text-sm">
-                        <div class="flex justify-between border-b pb-2"><span>Produksi Tahunan:</span> <span class="font-bold" id="a2S_Prod">-</span></div>
-                        <div class="flex justify-between border-b pb-2"><span>Biaya Operasi Tahunan:</span> <span class="font-bold" id="a2S_Op">-</span></div>
-                        <div class="flex justify-between text-blue-600 font-bold text-xl pt-4 border-t"><span>Biaya per MWh:</span> <span id="a2S_MWh">-</span></div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya Awal:</span> 
+                            <span class="font-bold text-slate-700" id="a2S_Initial">-</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya per Bulan:</span> 
+                            <span class="font-bold text-slate-700" id="a2S_Monthly">-</span>
+                        </div>
+                        <div class="flex justify-between text-blue-600 font-bold text-xl pt-4 border-t">
+                            <span>LCOE:</span> 
+                            <span id="a2S_MWh">-</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
-                    <h3 class="text-slate-700 font-bold text-lg mb-6">🌑 Energi Batu Bara</h3>
+                    <h3 class="text-slate-700 font-bold text-lg mb-6 flex items-center">🌑 Energi Batu Bara</h3>
                     <div class="space-y-4 text-sm">
-                        <div class="flex justify-between border-b pb-2"><span>Produksi Tahunan:</span> <span class="font-bold" id="a2C_Prod">-</span></div>
-                        <div class="flex justify-between border-b pb-2"><span>Biaya Bahan Bakar:</span> <span class="font-bold text-red-500" id="a2C_Fuel">-</span></div>
-                        <div class="flex justify-between text-red-600 font-bold text-xl pt-4 border-t"><span>Biaya per MWh:</span> <span id="a2C_MWh">-</span></div>
-                        <div class="flex justify-between pt-2"><span>Batu Bara Dibutuhkan:</span> <span class="font-bold" id="a2C_Req">-</span></div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya Awal:</span> 
+                            <span class="font-bold text-slate-700" id="a2C_Initial">-</span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span>Biaya per Bulan:</span> 
+                            <span class="font-bold text-slate-700" id="a2C_Monthly">-</span>
+                        </div>
+                        <div class="flex justify-between text-red-600 font-bold text-xl pt-4 border-t">
+                            <span>LCOE:</span> 
+                            <span id="a2C_MWh">-</span>
+                        </div>
                     </div>
                 </div>
+                
             </div>
+
             <div class="p-8 bg-blue-950 text-white rounded-3xl shadow-xl border border-blue-900">
-                <h4 class="text-sm font-bold uppercase tracking-widest text-blue-200 mb-3">Pemenang untuk Area 2:</h4>
+                <h4 class="text-sm font-bold uppercase tracking-widest text-blue-200 mb-3">Pemenang Strategis:</h4>
                 <p id="a2WinMsg" class="text-2xl font-black text-amber-400">-</p>
-                <p class="text-blue-300 text-xs mt-2">-</p>
+                <p class="text-blue-300 text-xs mt-2">Keputusan berdasarkan perbandingan biaya jangka panjang (LCOE).</p>
             </div>
         </div>
-    </main>
 
     <script src="simulator.js"></script>
 </body>

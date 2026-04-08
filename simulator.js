@@ -1,93 +1,77 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fungsi pembantu untuk format angka
+    const dataWilayah = {
+        "1. Aceh": [5.07, 150], "2. Sumatera Utara": [4.80, 500], "3. Sumatera Barat": [4.65, 200],
+        "4. Riau": [4.80, 300], "5. Kepulauan Riau": [4.70, 180], "6. Jambi": [4.50, 150],
+        "7. Sumatera Selatan": [4.85, 400], "8. Bangka Belitung": [4.90, 100], "9. Bengkulu": [4.60, 100],
+        "10. Lampung": [5.00, 350], "11. DKI Jakarta": [4.80, 1500], "12. Jawa Barat": [4.50, 1200],
+        "13. Banten": [4.60, 800], "14. Jawa Tengah": [4.95, 900], "15. DI Yogyakarta": [5.10, 250],
+        "16. Jawa Timur": [5.25, 1100], "17. Bali": [5.30, 400], "18. NTB": [5.60, 150],
+        "19. NTT": [5.80, 120], "20. Kalimantan Barat": [4.50, 200], "21. Kalimantan Tengah": [4.60, 180],
+        "22. Kalimantan Selatan": [4.80, 250], "23. Kalimantan Timur": [4.70, 450], "24. Kalimantan Utara": [4.40, 80],
+        "25. Sulawesi Utara": [5.10, 180], "26. Gorontalo": [5.20, 80], "27. Sulawesi Tengah": [5.00, 150],
+        "28. Sulawesi Barat": [4.90, 70], "29. Sulawesi Selatan": [5.30, 550], "30. Sulawesi Tenggara": [5.10, 150],
+        "31. Maluku": [5.20, 100], "32. Maluku Utara": [5.00, 80], "33. Papua": [4.80, 200], "34. Papua Barat": [4.70, 100]
+    };
+
     const formatRp = (v) => "Rp " + Math.round(v).toLocaleString('id-ID');
-    const formatNum = (v) => Math.round(v).toLocaleString('id-ID');
 
-    function calculate() {
-        // --- AMBIL DATA DARI INPUT ---
-        const name1 = document.getElementById('a1Name').value || "Area 1";
-        const irr1 = parseFloat(document.getElementById('a1Irr').value) || 0;
-        const coalP1 = parseFloat(document.getElementById('a1CoalPrice').value) || 0;
-        const dem1 = parseFloat(document.getElementById('a1Demand').value) || 0;
+    window.updateIrr = function(areaNum) {
+        const selectedName = document.getElementById(`a${areaNum}Name`).value;
+        const irrInput = document.getElementById(`a${areaNum}Irr`);
+        const demInput = document.getElementById(`a${areaNum}Demand`);
 
-        const name2 = document.getElementById('a2Name').value || "Area 2";
-        const irr2 = parseFloat(document.getElementById('a2Irr').value) || 0;
-        const coalP2 = parseFloat(document.getElementById('a2CoalPrice').value) || 0;
-        const dem2 = parseFloat(document.getElementById('a2Demand').value) || 0;
-
-        const hours = 8760; // Jam dalam setahun
-
-        // --- FUNGSI LOGIKA PERHITUNGAN ---
-        function getResults(irr, coalP, dem) {
-            const mwhTotal = dem * hours;
-            
-            // 1. Perhitungan Surya
-            const s_prod = mwhTotal * (irr / 5); 
-            const s_op = 8000000; // Biaya Operasi Tetap Rp 8 Juta
-            // Rumus LCOE Surya (Semakin tinggi iradiasi, semakin murah)
-            const s_lcoe = 78000 + (600 / (irr || 1) * 100);
-
-            // 2. Perhitungan Batu Bara
-            const c_prod = mwhTotal * 0.85; // Efisiensi pembakaran
-            const c_req = c_prod * 0.4;     // Konsumsi 0.4 ton per MWh
-            const c_fuel = c_req * coalP;   // Total biaya bahan bakar
-            const c_lcoe = (c_fuel + 6000000) / (c_prod || 1); // Biaya bahan bakar + ops / produksi
-
-            return { s_prod, s_op, s_lcoe, c_prod, c_fuel, c_req, c_lcoe };
+        if (dataWilayah[selectedName]) {
+            irrInput.value = dataWilayah[selectedName][0];
+            demInput.value = dataWilayah[selectedName][1]; 
+        } else {
+            irrInput.value = 0;
+            demInput.value = 0;
         }
+        calculate();
+    };
 
-        const r1 = getResults(irr1, coalP1, dem1);
-        const r2 = getResults(irr2, coalP2, dem2);
+    window.calculate = function() {
+        for (let i = 1; i <= 2; i++) {
+            const irr = parseFloat(document.getElementById(`a${i}Irr`).value) || 0;
+            const coalP = parseFloat(document.getElementById(`a${i}CoalPrice`).value) || 0;
+            const dem = parseFloat(document.getElementById(`a${i}Demand`).value) || 0;
+            const life = parseFloat(document.getElementById(`a${i}Life`).value) || 1;
 
-        // --- UPDATE UI AREA 1 ---
-        // Judul Area
-        const title1 = document.getElementById('outA1Title text-slate-800'); // Sesuai ID di HTML kamu yang agak unik
-        if(title1) title1.innerText = "Hasil " + name1;
+            const s_initial = dem * 10000000000;
+            const s_annual_opex = s_initial * 0.01;
+            const s_energy_annual_mwh = (dem * irr * 365);
+            const s_lcoe = (s_initial + (s_annual_opex * life)) / (s_energy_annual_mwh * life);
 
-        document.getElementById('a1S_Prod').innerText = formatNum(r1.s_prod) + " MWh/tahun";
-        document.getElementById('a1S_Op').innerText = formatRp(r1.s_op) + "/tahun";
-        document.getElementById('a1S_MWh').innerText = formatRp(r1.s_lcoe);
+            const e_coal_annual_mwh = (dem * 8760) * 0.85;
+            const c_initial = dem * 23000000000;
+            const c_fuel_annual = (e_coal_annual_mwh * 0.4) * coalP;
+            const c_maintenance_annual = e_coal_annual_mwh * 450000;
+            const c_annual_opex = c_fuel_annual + c_maintenance_annual;
+            const c_lcoe = (c_initial + (c_annual_opex * life)) / (e_coal_annual_mwh * life);
 
-        document.getElementById('a1C_Prod').innerText = formatNum(r1.c_prod) + " MWh/tahun";
-        document.getElementById('a1C_Fuel').innerText = formatRp(r1.c_fuel);
-        document.getElementById('a1C_MWh').innerText = formatRp(r1.c_lcoe);
-        document.getElementById('a1C_Req').innerText = formatNum(r1.c_req) + " ton/tahun";
+            document.getElementById(`a${i}S_Initial`).innerText = formatRp(s_initial);
+            document.getElementById(`a${i}S_Monthly`).innerText = formatRp(s_annual_opex) + " /tahun";
+            document.getElementById(`a${i}S_MWh`).innerText = formatRp(s_lcoe) + " /MWh";
 
-        // Pesan Pemenang Area 1
-        const perc1 = Math.abs(((r1.c_lcoe - r1.s_lcoe) / r1.c_lcoe * 100)).toFixed(1);
-        document.getElementById('a1WinMsg').innerText = r1.s_lcoe < r1.c_lcoe ? 
-            `☀️ Surya ${perc1}% lebih murah per MWh` : 
-            `🌑 Batu Bara ${perc1}% lebih murah per MWh`;
+            document.getElementById(`a${i}C_Initial`).innerText = formatRp(c_initial);
+            document.getElementById(`a${i}C_Monthly`).innerText = formatRp(c_annual_opex) + " /tahun";
+            document.getElementById(`a${i}C_MWh`).innerText = formatRp(c_lcoe) + " /MWh";
 
-        // --- UPDATE UI AREA 2 ---
-        // Update Judul Area 2 (Cari elemen h2 yang isinya "Hasil Area 2")
-        const h2Elements = document.getElementsByTagName('h2');
-        for (let h2 of h2Elements) {
-            if (h2.innerText.includes("Hasil Area 2")) h2.innerText = "Hasil " + name2;
+            const winMsg = document.getElementById(`a${i}WinMsg`);
+            if (irr === 0 || dem === 0) {
+                winMsg.innerText = "-";
+            } else {
+                const diff = Math.abs(((c_lcoe - s_lcoe) / c_lcoe * 100)).toFixed(1);
+                winMsg.innerText = s_lcoe < c_lcoe ? 
+                    `☀️ Surya ${diff}% lebih murah` : 
+                    `🌑 Batu Bara ${diff}% lebih murah`;
+            }
         }
+    };
 
-        document.getElementById('a2S_Prod').innerText = formatNum(r2.s_prod) + " MWh/tahun";
-        document.getElementById('a2S_Op').innerText = formatRp(r2.s_op) + "/tahun";
-        document.getElementById('a2S_MWh').innerText = formatRp(r2.s_lcoe);
-
-        document.getElementById('a2C_Prod').innerText = formatNum(r2.c_prod) + " MWh/tahun";
-        document.getElementById('a2C_Fuel').innerText = formatRp(r2.c_fuel);
-        document.getElementById('a2C_MWh').innerText = formatRp(r2.c_lcoe);
-        document.getElementById('a2C_Req').innerText = formatNum(r2.c_req) + " ton/tahun";
-
-        // Pesan Pemenang Area 2
-        const perc2 = Math.abs(((r2.c_lcoe - r2.s_lcoe) / r2.c_lcoe * 100)).toFixed(1);
-        document.getElementById('a2WinMsg').innerText = r2.s_lcoe < r2.c_lcoe ? 
-            `☀️ Surya ${perc2}% lebih murah per MWh` : 
-            `🌑 Batu Bara ${perc2}% lebih murah per MWh`;
-    }
-
-    // Pasang Event Listener ke semua input agar otomatis update saat diketik
-    const allInputs = document.querySelectorAll('input');
-    allInputs.forEach(input => {
-        input.addEventListener('input', calculate);
+    document.querySelectorAll('input, select').forEach(el => {
+        el.addEventListener('input', calculate);
     });
 
-    // Jalankan kalkulasi pertama kali saat halaman dibuka
     calculate();
 });
